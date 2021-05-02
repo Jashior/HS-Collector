@@ -18,12 +18,12 @@ export class CardService {
     return this.http.get<Array<any>>(this.cardsUrl);
   }
 
-  getCollection() {
-    return this.http.get(this.collectionUrl);
+  getCollection(link: string) {
+    return this.http.get(link);
   }
 
-  getData() {
-    return forkJoin([this.getAllCards(), this.getCollection()])
+  getData(link: string) {
+    return forkJoin([this.getAllCards(), this.getCollection(link)])
   }
 
   getCardSetsFromData(collection: any, cards: Array<any>) {

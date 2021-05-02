@@ -1,0 +1,169 @@
+.navbar {
+    background-color: #2b2828;
+    text-align: center;
+    box-shadow: 0 0 5px #050505;
+    border: 1px solid black;
+}
+
+.navbar-text {
+    text-align: center;
+    justify-content: center;
+}
+
+.navBarImage {
+    box-shadow: 0 0 2px #362e2e;
+}
+
+.card {
+    background-color: #333333;
+    box-shadow: 0 0 3px #333333;
+    cursor: default;
+    border: 1px solid black;
+}
+
+.rarity-card {
+    background-color: #2b2828;
+    cursor: pointer;
+}
+
+.rarity-card:hover {
+    box-shadow: 0 0 2px #EEEEE9;
+}
+
+.card-set:hover {
+    background-color: #272323;
+    box-shadow: 0 0 2px #EEEEE9;
+}
+
+.sortActive {
+    background-color: #2e2a2a;
+    border: 1px solid white;
+}
+
+.pageTitleText {
+    color: #EEEEE9;
+}
+
+.main-progress-bar {
+    box-shadow: 0 0 3px #333333;
+    min-height: 25px;
+}
+
+.cardRarityTitleText {
+    color: #EEEEE9;
+    text-align: center;
+    text-shadow: #3f3b3b 1px 0 2px;
+}
+
+.cardTitleText {
+    color: #EEEEE9;
+    text-align: center;
+    text-shadow: #3f3b3b 1px 0 2px;
+}
+
+.cardCollectedText {
+    color: #EEEEE9;
+    text-align: center
+}
+
+.cardCollectedCompletedText {
+    color: #b7e1cd;
+    text-align: center
+}
+
+.minorCardCollectedTextCommon {
+    color: #929292;
+    text-align: center;
+    font-size: 80%;
+}
+
+.minorCardCollectedTextRare {
+    color: #929292;
+    text-align: center;
+    font-size: 80%;
+}
+
+.minorCardCollectedTextEpic {
+    color: #929292;
+    text-align: center;
+    font-size: 80%;
+}
+
+.minorCardCollectedTextLegendary {
+    color: #929292;
+    text-align: center;
+    font-size: 80%;
+}
+
+.minorCardCollectedTextCompleted {
+    color: #b7e1cd;
+    font-weight: bold;
+}
+
+.minorTextSortActive {
+    background-color: #222121;
+    border-radius: 5px;
+}
+
+.card-body {
+    padding: 5px 5px 5px 5px;
+}
+
+.progress {
+    box-shadow: 0 0 3px #333333;
+    cursor: default;
+    /* background-color: #B5C2B7 !important */
+}
+
+.common-progress-bar {
+    background-color: #B5C2B7!important
+}
+
+.rare-progress-bar {
+    background-color: #4E8ADC !important
+}
+
+.epic-progress-bar {
+    background-color: #9749e0 !important
+}
+
+.legendary-progress-bar {
+    background-color: #FEA60F !important
+}
+
+.total-progress-bar {
+    background-color: rgb(40, 167, 69) !important
+}
+
+.progress {
+    position: relative;
+}
+
+.progress span {
+    padding: 8px;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    color: #272323;
+    font-weight: bolder;
+}
+
+.main-progress-bar span {
+    padding: 12px;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    color: #272323;
+    font-weight: bolder;
+}
+
+/* no horizontal scrollbar */
+
+.navbar {
+    margin: 0;
+    padding: 7.5px 15px;
+}
