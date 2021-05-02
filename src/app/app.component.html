@@ -1,3 +1,5 @@
+<!-- NAV BAR -->
+
 <nav class="navbar row">
   <div class="col justify-content-center">
     <img
@@ -7,13 +9,15 @@
       class="navBarImage"
       onClick="window.location.reload();"
     />
-    <!-- <h6 class="pageTitleText"></h6> -->
   </div>
 </nav>
 
 <br />
 
 <div class="container">
+
+  <!-- TOTAL PANEL -->
+
   <div class="row justify-content-center">
     <div class="col-12">
       <div
@@ -44,13 +48,18 @@
 
   <br />
 
+  <!-- SUMMARY PANELS -->
+
   <div class="row justify-content-center">
+    
+    <!-- COMMON -->
+
     <div class="col-12 col-lg-3">
       <div
         class="card rarity-card mb-3"
-        (click)="sortBy('common')"
+        (click)="sortBy(rarity.COMMON)"
         [ngClass]="{
-          sortActive: sortByString == 'common'
+          sortActive: sortByString == rarity.COMMON
         }"
       >
         <div class="card-body">
@@ -70,12 +79,15 @@
         </div>
       </div>
     </div>
+
+    <!-- RARE -->
+
     <div class="col-12 col-lg-3">
       <div
         class="card rarity-card mb-3"
-        (click)="sortBy('rare')"
+        (click)="sortBy(rarity.RARE)"
         [ngClass]="{
-          sortActive: sortByString == 'rare'
+          sortActive: sortByString == rarity.RARE
         }"
       >
         <div class="card-body">
@@ -95,12 +107,15 @@
         </div>
       </div>
     </div>
+
+    <!-- EPIC -->
+
     <div class="col-12 col-lg-3">
       <div
         class="card rarity-card mb-3"
-        (click)="sortBy('epic')"
+        (click)="sortBy(rarity.EPIC)"
         [ngClass]="{
-          sortActive: sortByString == 'epic'
+          sortActive: sortByString == rarity.EPIC
         }"
       >
         <div class="card-body">
@@ -120,12 +135,15 @@
         </div>
       </div>
     </div>
+
+    <!-- LEGENDARY -->
+
     <div class="col-12 col-lg-3">
       <div
         class="card rarity-card mb-3"
-        (click)="sortBy('legendary')"
+        (click)="sortBy(rarity.LEGENDARY)"
         [ngClass]="{
-          sortActive: sortByString == 'legendary'
+          sortActive: sortByString == rarity.LEGENDARY
         }"
       >
         <div class="card-body">
@@ -142,21 +160,13 @@
               </span>
             </div>
           </div>
-
-          <!-- <br />
-          <div
-            class="minorCardCollectedTextLegendary"
-            [ngClass]="{
-              minorCardCollectedTextCompleted:
-                getPercentCollectedTotalLegendary() == 100
-            }"
-          >
-
-          </div> -->
         </div>
       </div>
     </div>
   </div>
+
+  <!-- COLLECTION PANELS -->
+
   <hr style="margin-top: 0em" />
   <div class="row justify-content-md-center">
     <div
@@ -166,7 +176,7 @@
     >
       <div class="card card-set mb-3">
         <div class="card-body">
-          <h5 class="card-title cardTitleText">{{ cardSet.name }}</h5>
+          <h5 class="card-title cardTitleText">{{ cardSet.name | friendlyName }}</h5>
           <!-- <h6
             class="cardCollectedText"
             [ngClass]="{
@@ -186,13 +196,15 @@
               [ngStyle]="{ width: getPercentCollected(cardSet) + '%' }"
               [ngClass]="{
                 'common-progress-bar':
-                sortByString == 'common',
+                sortByString == rarity.COMMON,
                 'rare-progress-bar':
-                sortByString == 'rare',
+                sortByString == rarity.RARE,
                 'epic-progress-bar':
-                sortByString == 'epic',
+                sortByString == rarity.EPIC,
                 'legendary-progress-bar':
-                sortByString == 'legendary'
+                sortByString == rarity.LEGENDARY,
+                'total-progress-bar':
+                sortByString == 'total'
               }"
             ></div>
           </div>
@@ -200,12 +212,12 @@
           <div>
             <br />
             <div class="row justify-content-md-center">
-              <div class="col-3">
+              <div *ngIf="sortByString == 'release' || sortByString == 'total' || sortByString == rarity.COMMON" class="col-3">
                 <div>
                   <div
                     class="minorCardCollectedTextCommon"
                     [ngClass]="{
-                      minorTextSortActive: sortByString == 'common',
+                      minorTextSortActive: sortByString == rarity.COMMON,
                       minorCardCollectedTextCompleted:
                         cardSet.commonCollected == cardSet.commonTotal
                     }"
@@ -215,12 +227,12 @@
                   </div>
                 </div>
               </div>
-              <div class="col-3">
+              <div *ngIf="sortByString == 'release' || sortByString == 'total' || sortByString == rarity.RARE" class="col-3">
                 <div>
                   <div
                     class="minorCardCollectedTextRare"
                     [ngClass]="{
-                      minorTextSortActive: sortByString == 'rare',
+                      minorTextSortActive: sortByString == rarity.RARE,
                       minorCardCollectedTextCompleted:
                         cardSet.rareCollected === cardSet.rareTotal
                     }"
@@ -229,12 +241,12 @@
                   </div>
                 </div>
               </div>
-              <div class="col-3">
+              <div *ngIf="sortByString == 'release' || sortByString == 'total' || sortByString == rarity.EPIC" class="col-3">
                 <div>
                   <div
                     class="minorCardCollectedTextEpic"
                     [ngClass]="{
-                      minorTextSortActive: sortByString == 'epic',
+                      minorTextSortActive: sortByString == rarity.EPIC,
                       minorCardCollectedTextCompleted:
                         cardSet.epicCollected === cardSet.epicTotal
                     }"
@@ -243,12 +255,12 @@
                   </div>
                 </div>
               </div>
-              <div class="col-3">
+              <div *ngIf="sortByString == 'release' || sortByString == 'total' || sortByString == rarity.LEGENDARY" class="col-3">
                 <div>
                   <div
                     class="minorCardCollectedTextLegendary"
                     [ngClass]="{
-                      minorTextSortActive: sortByString == 'legendary',
+                      minorTextSortActive: sortByString == rarity.LEGENDARY,
                       minorCardCollectedTextCompleted:
                         cardSet.legendaryCollected === cardSet.legendaryTotal
                     }"
@@ -268,8 +280,8 @@
 
 <br />
 
+<!-- FOOTER -->
+
 <footer class="text-center text-white">
-  <!-- Copyright -->
-  <div class="text-center p-3">Made with BootStrap</div>
-  <!-- Copyright -->
+  <div class="text-center p-3">Hearthstone Collector</div>
 </footer>

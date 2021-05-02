@@ -1,0 +1,11 @@
+.navbar {
+    margin: 0;
+    padding: 7.5px 15px;
+}
+
+.navbar {
+    background-color: #2b2828;
+    text-align: center;
+    box-shadow: 0 0 5px #050505;
+    border: 1px solid black;
+}
