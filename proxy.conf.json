@@ -1,0 +1,8 @@
+{
+    "/api/*": {
+        "target": "https://hsreplay.net",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

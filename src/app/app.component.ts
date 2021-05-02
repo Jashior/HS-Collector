@@ -1,5 +1,17 @@
 import { Component } from '@angular/core';
+import { CardService } from './card.service';
 import { CardSet } from './model/CardSet.js';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+enum Rarity {
+  Common,
+  Rare,
+  Epic,
+  Legendary
+}
 
 @Component({
   selector: 'app-root',
@@ -7,6 +19,7 @@ import { CardSet } from './model/CardSet.js';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+
   title = 'hscollector';
   cardSets: CardSet[] = [];
   cardSetNames = ['Classic', 'The Barrens', 'Scholomance', 'Black Temple', 'Darkmoon Faire', 'Classic', 'The Barrens', 'Scholomance', 'Black Temple', 'Darkmoon Faire', 'Classic', 'The Barrens', 'Scholomance', 'Black Temple', 'Darkmoon Faire', 'Classic', 'The Barrens', 'Scholomance', 'Black Temple', 'Darkmoon Faire']
@@ -25,23 +38,106 @@ export class AppComponent {
     image: 'hello',
     showDetails: false
   };
+  
+  cardsUrl = "https://api.hearthstonejson.com/v1/latest/enUS/cards.json";
+  collectionUrl = "api/v1/collection/?region=2&account_lo=15542146"; //https://hsreplay.net/
 
-  ngOnInit() {
-    for (let cardSetName of this.cardSetNames){
-      let randomCommonCollected = Math.floor(Math.random() * 90)
-      let randomCommonTotal = Math.floor(Math.random() * 11) + 100
-      let randomRareCollected = Math.floor(Math.random() * 40)
-      let randomRareTotal = Math.floor(Math.random() * 11) + 50
-      let randomEpicCollected = Math.floor(Math.random() * 15)
-      let randomEpicTotal = Math.floor(Math.random() * 11) + 15
-      let randomLegendaryCollected = Math.floor(Math.random() * 10)
-      let randomLegendaryTotal = Math.floor(Math.random() * 11) + 10
-      this.cardSets.push({...this.cardSetExample, name: cardSetName, commonCollected: randomCommonCollected, commonTotal: randomCommonTotal
-      , rareCollected: randomRareCollected, rareTotal: randomRareTotal, epicCollected: randomEpicCollected, epicTotal: randomEpicTotal, legendaryCollected: randomLegendaryCollected, legendaryTotal: randomLegendaryTotal})
-    }
+  constructor(cardService: CardService, http: HttpClient) {
+    // this.cardSets = cardService.loadCollection();
+
+    var collection = http.get(this.collectionUrl)
+      .subscribe((collectionData) => {
+        var cards = http.get<Array<any>>(this.cardsUrl)
+          .subscribe(cardsData => {
+            const collectibleCards = cardsData.filter(card => card.collectible)
+            const myCards = JSON.parse(
+              JSON.stringify(collectionData))
+          
+            let sets = {}
+           
+            for (let card of collectibleCards){
+              let setOfCard: string = card.set 
+              let id: string = card.dbfId
+              let quantity = 0;
+
+              if (myCards.collection[id]){
+                quantity = Math.min(2, myCards.collection[id][0] + myCards.collection[id][1])
+              } 
+
+              if ((sets as any)[setOfCard] == undefined){
+                (sets as any)[setOfCard] = {
+                    name: card.set,
+                    commonTotal: 0,
+                    commonCollected: 0,
+                    rareTotal: 0,
+                    rareCollected: 0,
+                    epicTotal: 0,
+                    epicCollected: 0,
+                    legendaryTotal: 0,
+                    legendaryCollected: 0,    
+                    image: "", 
+                    showDetails: false
+                }
+              }
+
+                if (card.rarity == 'COMMON'){
+                  (sets as any)[setOfCard].commonTotal += 2;
+                  (sets as any)[setOfCard].commonCollected += quantity;
+                }
+                if (card.rarity == 'RARE'){
+                  (sets as any)[setOfCard].rareTotal += 2;
+                  (sets as any)[setOfCard].rareCollected += quantity;
+                }
+                if (card.rarity == 'EPIC'){
+                  (sets as any)[setOfCard].epicTotal += 2;
+                  (sets as any)[setOfCard].epicCollected += quantity;
+                }
+                if (card.rarity == 'LEGENDARY'){
+                  (sets as any)[setOfCard].legendaryTotal += 1;
+                  (sets as any)[setOfCard].legendaryCollected += Math.min(1, quantity);
+                }
+               
+            }
+
+            var finalSet: CardSet[] = []
+
+            var blacklist = ['HERO_SKINS',]
+            // var realNmes = {'YEAR_OF_THE_DRAGON': 'Year Of The Dragon'}
+            for(let key in sets){
+
+              if(blacklist.includes(key))
+                continue;
+
+              finalSet.push((sets as any)[key])
+            }
+
+
+
+            this.cardSets = finalSet;
+          })
+        })
+
+    // this.cardSets = cardService.loadCollection();
   }
 
+  ngOnInit() {
+    // for (let cardSetName of this.cardSetNames){
+    //   let randomCommonCollected = Math.floor(Math.random() * 90)
+    //   let randomCommonTotal = Math.floor(Math.random() * 11) + 100
+    //   let randomRareCollected = Math.floor(Math.random() * 40)
+    //   let randomRareTotal = Math.floor(Math.random() * 11) + 50
+    //   let randomEpicCollected = Math.floor(Math.random() * 15)
+    //   let randomEpicTotal = Math.floor(Math.random() * 11) + 15
+    //   let randomLegendaryCollected = Math.floor(Math.random() * 10)
+    //   let randomLegendaryTotal = Math.floor(Math.random() * 11) + 10
+    //   this.cardSets.push({...this.cardSetExample, name: cardSetName, commonCollected: randomCommonCollected, commonTotal: randomCommonTotal
+    //   , rareCollected: randomRareCollected, rareTotal: randomRareTotal, epicCollected: randomEpicCollected, epicTotal: randomEpicTotal, legendaryCollected: randomLegendaryCollected, legendaryTotal: randomLegendaryTotal})
+    // }
+  }
 
+  printSets(){
+    console.log(this.cardSets)
+  }
   getTotalCollectedCards(){
     let total = 0;
     for(let cardSet of this.cardSets){
@@ -152,6 +248,19 @@ export class AppComponent {
   }
 
   getPercentCollected(cardSet: CardSet){
+    if (this.sortByString == 'common'){
+      return (cardSet.commonCollected / cardSet.commonTotal)*100
+    }
+    if (this.sortByString == 'rare'){
+      return (cardSet.rareCollected / cardSet.rareTotal)*100
+    }
+    if (this.sortByString == 'epic'){
+      return (cardSet.epicCollected / cardSet.epicTotal)*100
+    }
+    if (this.sortByString == 'legendary'){
+      return (cardSet.legendaryCollected / cardSet.legendaryTotal)*100
+    }
+
     return (this.getTotalCollectedOfCardSet(cardSet) / this.getTotalCardsOfCardSet(cardSet))*100
   }
 

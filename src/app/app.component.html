@@ -185,9 +185,14 @@
               role="progressbar"
               [ngStyle]="{ width: getPercentCollected(cardSet) + '%' }"
               [ngClass]="{
-                progressCompleted:
-                  getTotalCollectedOfCardSet(cardSet) ===
-                  getTotalCardsOfCardSet(cardSet)
+                'common-progress-bar':
+                sortByString == 'common',
+                'rare-progress-bar':
+                sortByString == 'rare',
+                'epic-progress-bar':
+                sortByString == 'epic',
+                'legendary-progress-bar':
+                sortByString == 'legendary'
               }"
             ></div>
           </div>
@@ -200,11 +205,9 @@
                   <div
                     class="minorCardCollectedTextCommon"
                     [ngClass]="{
+                      minorTextSortActive: sortByString == 'common',
                       minorCardCollectedTextCompleted:
-                        cardSet.commonCollected === cardSet.commonTotal
-                    }"
-                    [ngClass]="{
-                      minorTextSortActive: sortByString == 'common'
+                        cardSet.commonCollected == cardSet.commonTotal
                     }"
                   >
                     {{ cardSet.commonCollected }} /
@@ -217,11 +220,9 @@
                   <div
                     class="minorCardCollectedTextRare"
                     [ngClass]="{
+                      minorTextSortActive: sortByString == 'rare',
                       minorCardCollectedTextCompleted:
                         cardSet.rareCollected === cardSet.rareTotal
-                    }"
-                    [ngClass]="{
-                      minorTextSortActive: sortByString == 'rare'
                     }"
                   >
                     {{ cardSet.rareCollected }} / {{ cardSet.rareTotal }}
@@ -233,11 +234,9 @@
                   <div
                     class="minorCardCollectedTextEpic"
                     [ngClass]="{
+                      minorTextSortActive: sortByString == 'epic',
                       minorCardCollectedTextCompleted:
                         cardSet.epicCollected === cardSet.epicTotal
-                    }"
-                    [ngClass]="{
-                      minorTextSortActive: sortByString == 'epic'
                     }"
                   >
                     {{ cardSet.epicCollected }} / {{ cardSet.epicTotal }}
@@ -249,11 +248,9 @@
                   <div
                     class="minorCardCollectedTextLegendary"
                     [ngClass]="{
+                      minorTextSortActive: sortByString == 'legendary',
                       minorCardCollectedTextCompleted:
                         cardSet.legendaryCollected === cardSet.legendaryTotal
-                    }"
-                    [ngClass]="{
-                      minorTextSortActive: sortByString == 'legendary'
                     }"
                   >
                     {{ cardSet.legendaryCollected }} /
