@@ -10,7 +10,18 @@
     border: 1px solid black;
 }
 
+.navbar-text {
+    text-align: center;
+    justify-content: center;
+}
+
+.navBarImage {
+    box-shadow: 0 0 2px #362e2e;
+}
+
 footer {
     background-color: #2b2828;
     text-align: center;
 }
+
+
