@@ -1,27 +1,11 @@
 # Hscollector
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
 
-## Development server
+## Running the project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Once cloned, run 'npm install' followed by 'npm start' to run the project locally. 
 
-## Code scaffolding
+## API Link
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To get your personal API code for your Hearthstone collection, log in and view at https://hsreplay.net/collection/mine/. Ensure your collection is up to date and set to be publically visible.  Find the link within the network tab of the dev console ![networktab](https://user-images.githubusercontent.com/42616071/116918490-dfa94500-ac47-11eb-9d54-3a4cb41a9615.png)
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
