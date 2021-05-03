@@ -1,13 +1,39 @@
-<input
-  type="text"
-  class="input search-bar"
-  placeholder="Enter your task"
-  [(ngModel)]="value"
-/>
-<button
-  type="button"
-  (click)="loadCollection()"
-  class="btn btn-outline-primary"
->
-  search
-</button>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="search-title-text">
+        <h1>Enter your collection</h1>
+      </div>
+
+      <div class="search-title-sub-text">
+        <span class="sub-text-span">
+          Enter the api code from your HSReplay collection,&nbsp;
+        </span>
+        <span class="emphasis-text">
+          api/v1/collection/?region=2&account_lo=15542146</span
+        >
+      </div>
+    </div>
+
+    <div class="col-8">
+      <br />
+      <div class="search-container">
+        <input
+          type="text"
+          class="input search-bar shadow"
+          [(ngModel)]="value"
+        />
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="row justify-content-center">
+    <button
+      type="button"
+      (click)="loadCollection()"
+      class="btn btn-outline-primary shadow search-button"
+    >
+      <div class="search-text">search</div>
+    </button>
+  </div>
+</div>

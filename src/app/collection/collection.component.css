@@ -1,22 +1,22 @@
 .card {
-    background-color: #333333;
-    box-shadow: 0 0 3px #333333;
+    background-color: #343A40;
     cursor: default;
-    border: 1px solid black;
+    border: 1px solid rgb(29, 28, 28);
 }
 
 .rarity-card {
-    background-color: #2b2828;
+    background-color: #343A40;
     cursor: pointer;
 }
 
 .rarity-card:hover {
     box-shadow: 0 0 2px #EEEEE9;
+
 }
 
 .card-set:hover {
-    background-color: #272323;
-    box-shadow: 0 0 2px #EEEEE9;
+    background-color: #3d434d;
+
 }
 
 .sortActive {
@@ -81,11 +81,11 @@
 
 .minorCardCollectedTextCompleted {
     color: #b7e1cd;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .minorTextSortActive {
-    background-color: #222121;
+    background-color: #2e2a2a;
     border-radius: 5px;
 }
 
@@ -145,3 +145,10 @@
     font-weight: bolder;
 }
 
+.shadow {
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
+  }
+
+  hr { background-color: #EEEEE9; height: 1px; border: 0; }
