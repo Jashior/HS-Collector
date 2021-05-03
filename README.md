@@ -6,7 +6,7 @@ Hscollector is a web application to display an overview of your Hearthstone game
 
 ## Running the project
 
-Once cloned, run 'npm install' followed by 'npm start' to run the project locally. 
+Once cloned, run `npm install` followed by `npm start` to run the project locally. 
 
 ## API Link
 
