@@ -27,7 +27,6 @@
 }
 
 .sub-text-span{
-margin: -5px;
 
 }
 
@@ -47,9 +46,8 @@ margin: -5px;
 }
 
 .search-button{
-    width: 12vh;
-    height: 4vh;
-    
+    width: 10em;
+    height: auto;
 }
 
 .search-text{

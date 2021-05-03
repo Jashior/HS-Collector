@@ -16,6 +16,7 @@ export class CollectionComponent implements OnInit {
   sortByString: string;
   rarity = Rarity;
   link: string;
+  loading: boolean = true;
 
   constructor(private route: ActivatedRoute, private cardService: CardService) {
     this.title = 'hscollector';
@@ -31,6 +32,7 @@ export class CollectionComponent implements OnInit {
       var cards = results[1];
       this.cardSets = cardService.getCardSetsFromData(cards, collection);
       this.sortBy(this.sortByString);
+      this.loading = false;
     })
   }
 

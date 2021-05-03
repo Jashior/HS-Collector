@@ -12,6 +12,7 @@
 
 .rarity-card:hover {
     box-shadow: 0 0 2px #EEEEE9;
+    background-color: #3d434d
 }
 
 .card-set:hover {
@@ -40,6 +41,7 @@
     color: #EEEEE9;
     text-align: center;
     text-shadow: #3f3b3b 1px 0 2px;
+
 }
 
 .cardTitleText {
@@ -50,7 +52,8 @@
 
 .cardCollectedText {
     color: #EEEEE9;
-    text-align: center
+    text-align: center;
+
 }
 
 .cardCollectedCompletedText {
@@ -160,3 +163,16 @@ hr {
     height: 1px;
     border: 0;
 }
+
+.spinner-container{
+text-align: center;
+width: 10em; 
+height: 10em;
+padding: 10vh;
+}
+
+.spinner-element{
+    width: 5em; 
+    height: 5em;
+} 
+

@@ -1,22 +1,29 @@
-<!-- NAV BAR -->
+<body>
+  <div id="page-container">
+    <!-- NAV BAR -->
+    <nav class="navbar row shadow">
+      <div class="col justify-content-center">
+        <img
+          src="./assets/sqrl3.png"
+          alt=""
+          style="width: 2em; height: auto; cursor: pointer"
+          class="navBarImage"
+          (click)="goHome()"
+        />
+      </div>
+    </nav>
 
-<nav class="navbar row shadow">
-  <div class="col justify-content-center">
-    <img
-      src="./assets/sqrl2.png"
-      alt="Home"
-      style="width: 2em; height: auto; cursor: pointer"
-      class="navBarImage"
-      (click)="goHome()"
-    />
+    <br />
+
+    <div id="content-wrap">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- footer -->
+    <footer id="footer">
+      <span class="footer-text"
+        ><a href="https://github.com/SaintJuniper/hscollector">Github</a></span
+      >
+    </footer>
   </div>
-</nav>
-
-<br />
-
-<router-outlet></router-outlet>
-
-<br />
-<br />
-
-<!-- FOOTER -->
+</body>
