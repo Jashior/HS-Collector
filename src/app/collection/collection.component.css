@@ -100,7 +100,8 @@
 }
 
 .common-progress-bar {
-    background-color: #B5C2B7!important
+    /* background-color: #B5C2B7!important */
+    background-color: #8e908f!important
 }
 
 .rare-progress-bar {
