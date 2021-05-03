@@ -6,17 +6,20 @@
 
 .rarity-card {
     background-color: #343A40;
-    cursor: pointer;
+    cursor: pointer;    
+    border-radius: 0.5em;
 }
 
 .rarity-card:hover {
     box-shadow: 0 0 2px #EEEEE9;
-
 }
 
 .card-set:hover {
     background-color: #3d434d;
+}
 
+.card-set {
+    border-radius: 0.75em;
 }
 
 .sortActive {
@@ -149,7 +152,11 @@
 .shadow {
     -webkit-box-shadow: 0 10px 6px -6px #777;
     -moz-box-shadow: 0 10px 6px -6px #777;
-         box-shadow: 0 10px 6px -6px #777;
-  }
+    box-shadow: 0 10px 6px -6px #777;
+}
 
-  hr { background-color: #EEEEE9; height: 1px; border: 0; }
+hr {
+    background-color: #EEEEE9;
+    height: 1px;
+    border: 0;
+}
