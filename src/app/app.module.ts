@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'collection', component: CollectionComponent },
-  { path: 'search', component: SearchComponent},
+  { path: 'search', component: SearchComponent },
   { path: '', redirectTo: '/search', pathMatch: 'full' }
 ]
 
@@ -26,7 +26,7 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],

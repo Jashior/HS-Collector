@@ -1,4 +1,4 @@
-.search-bar{
+.search-bar {
     width: 50vh;
     height: 5vh;
     text-align: center;
@@ -9,48 +9,41 @@
 .shadow {
     -webkit-box-shadow: 0 10px 6px -6px #777;
     -moz-box-shadow: 0 10px 6px -6px #777;
-         box-shadow: 0 10px 6px -6px #777;
-  }
+    box-shadow: 0 10px 6px -6px #777;
+}
 
-.search-title-text{
+.search-title-text {
     text-align: center;
-   cursor: default;
+    cursor: default;
     color: #EEEEE9;
-    text-shadow:  2px 4px 3px rgba(0,0,0,0.3);
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
-.search-title-sub-text{
-    text-align:center;
-    color: #c4c4be; 
+.search-title-sub-text {
+    text-align: center;
+    color: #c4c4be;
     font-weight: lighter;
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
-.sub-text-span{
-
-}
-
-.emphasis-text{
+.emphasis-text {
     color: #FEA60F;
-    
 }
 
-
-.search-container{
+.search-container {
     text-align: center;
     width: 100%
 }
 
-.container{
+.container {
     padding: 30vh 0 0 0;
 }
 
-.search-button{
+.search-button {
     width: 10em;
     height: auto;
 }
 
-.search-text{
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+.search-text {
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
-

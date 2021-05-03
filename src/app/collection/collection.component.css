@@ -1,12 +1,13 @@
 .card {
     background-color: #343A40;
+    /* background-color: rgb(20, 20, 20); */
     cursor: default;
     border: 1px solid rgb(29, 28, 28);
 }
 
 .rarity-card {
     background-color: #343A40;
-    cursor: pointer;    
+    cursor: pointer;
     border-radius: 0.5em;
 }
 
@@ -41,7 +42,6 @@
     color: #EEEEE9;
     text-align: center;
     text-shadow: #3f3b3b 1px 0 2px;
-
 }
 
 .cardTitleText {
@@ -53,7 +53,6 @@
 .cardCollectedText {
     color: #EEEEE9;
     text-align: center;
-
 }
 
 .cardCollectedCompletedText {
@@ -164,15 +163,32 @@ hr {
     border: 0;
 }
 
-.spinner-container{
-text-align: center;
-width: 10em; 
-height: 10em;
-padding: 10vh;
+.spinner-container {
+    text-align: center;
+    width: 10em;
+    height: 10em;
+    padding: 10vh;
 }
 
-.spinner-element{
-    width: 5em; 
+.spinner-element {
+    width: 5em;
     height: 5em;
-} 
+}
 
+.error-title-text {
+    text-align: center;
+    cursor: default;
+    color: #EEEEE9;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+.error-title-sub-text {
+    text-align: center;
+    color: #c4c4be;
+    font-weight: lighter;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+.emphasis-text {
+    color: #FEA60F;
+}

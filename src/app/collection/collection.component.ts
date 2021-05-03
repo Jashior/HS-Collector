@@ -3,7 +3,7 @@ import { CardService } from '../services/card.service';
 import { CardSet } from '../model/CardSet.js';
 import { Rarity } from '../model/Rarity';
 import { compareCommon, compareRare, compareEpic, compareLegendary, compareTotal, releaseDate } from '../comparators/SortByComparator';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-collection',
@@ -16,9 +16,12 @@ export class CollectionComponent implements OnInit {
   sortByString: string;
   rarity = Rarity;
   link: string;
-  loading: boolean = true;
+  loading: boolean;
+  error: boolean;
 
-  constructor(private route: ActivatedRoute, private cardService: CardService) {
+  constructor(private route: ActivatedRoute, private cardService: CardService, private router: Router) {
+    this.loading = true;
+    this.error = false;
     this.title = 'hscollector';
     this.sortByString = 'release';
     this.link = "";
@@ -33,6 +36,10 @@ export class CollectionComponent implements OnInit {
       this.cardSets = cardService.getCardSetsFromData(cards, collection);
       this.sortBy(this.sortByString);
       this.loading = false;
+    }, error => {
+      console.log("error")
+      this.loading = false;
+      this.error = true;
     })
   }
 
@@ -198,5 +205,9 @@ export class CollectionComponent implements OnInit {
       this.cardSets.sort(releaseDate)
       return;
     }
+  }
+
+  navigateSearch() {
+    this.router.navigate(['/search']);
   }
 }
