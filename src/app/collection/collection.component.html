@@ -14,7 +14,7 @@
 <div class="row justify-content-center">
   <!-- Error panel -->
 
-  <div *ngIf="error" class="col-8">
+  <div *ngIf="error" class="col-8 error-panel">
     <div class="error-title-text">
       <h1>Error loading collection</h1>
     </div>
@@ -54,7 +54,7 @@
           }"
         >
           <div class="card-body">
-            <h5 class="cardRarityTitleText">Total</h5>
+            <h6 class="cardRarityTitleText">Total</h6>
 
             <div class="progress main-progress-bar">
               <div
@@ -88,7 +88,7 @@
           }"
         >
           <div class="card-body">
-            <h5 class="cardRarityTitleText">Common</h5>
+            <h6 class="cardRarityTitleText">Common</h6>
 
             <div class="progress common-progress-bar-container">
               <div
@@ -116,7 +116,7 @@
           }"
         >
           <div class="card-body">
-            <h5 class="cardRarityTitleText">Rare</h5>
+            <h6 class="cardRarityTitleText">Rare</h6>
 
             <div class="progress rare-progress-bar-container">
               <div
@@ -144,7 +144,7 @@
           }"
         >
           <div class="card-body">
-            <h5 class="cardRarityTitleText">Epic</h5>
+            <h6 class="cardRarityTitleText">Epic</h6>
 
             <div class="progress epic-progress-bar-container">
               <div
@@ -172,7 +172,7 @@
           }"
         >
           <div class="card-body">
-            <h5 class="cardRarityTitleText">Legendary</h5>
+            <h6 class="cardRarityTitleText">Legendary</h6>
 
             <div class="progress legendary-progress-bar-container">
               <div
@@ -195,7 +195,7 @@
     <hr style="margin-top: 0em" />
     <div class="row justify-content-md-center">
       <div
-        class="col-12 col-lg-4 cardSet"
+        class="col-12 col-lg-3 cardSet"
         *ngFor="let cardSet of cardSets"
         (click)="toggleShowDetails(cardSet)"
       >
@@ -204,19 +204,8 @@
             <h5 class="card-title cardTitleText">
               {{ cardSet.name | friendlyName }}
             </h5>
-            <!-- <h6
-              class="cardCollectedText"
-              [ngClass]="{
-                cardCollectedCompletedText:
-                  getTotalCollectedOfCardSet(cardSet) ===
-                  getTotalCardsOfCardSet(cardSet)
-              }"
-            >
-              {{ getTotalCollectedOfCardSet(cardSet) }} /
-              {{ getTotalCardsOfCardSet(cardSet) }}
-            </h6> -->
 
-            <div class="progress">
+            <div class="progress collection-progress-bar">
               <div
                 class="progress-bar bg-info"
                 role="progressbar"
@@ -232,21 +221,19 @@
             </div>
 
             <div>
-              <br />
-              <div class="row justify-content-md-center">
+              <div class="row justify-content-md-center collection-stats">
                 <div
                   *ngIf="
                     sortByString == 'release' ||
                     sortByString == 'total' ||
                     sortByString == rarity.COMMON
                   "
-                  class="col-3"
+                  class="col-6"
                 >
                   <div>
                     <div
                       class="minorCardCollectedTextCommon"
                       [ngClass]="{
-                        minorTextSortActive: sortByString == rarity.COMMON,
                         minorCardCollectedTextCompleted:
                           cardSet.commonCollected == cardSet.commonTotal
                       }"
@@ -262,13 +249,12 @@
                     sortByString == 'total' ||
                     sortByString == rarity.RARE
                   "
-                  class="col-3"
+                  class="col-6"
                 >
                   <div>
                     <div
                       class="minorCardCollectedTextRare"
                       [ngClass]="{
-                        minorTextSortActive: sortByString == rarity.RARE,
                         minorCardCollectedTextCompleted:
                           cardSet.rareCollected === cardSet.rareTotal
                       }"
@@ -283,13 +269,12 @@
                     sortByString == 'total' ||
                     sortByString == rarity.EPIC
                   "
-                  class="col-3"
+                  class="col-6"
                 >
                   <div>
                     <div
                       class="minorCardCollectedTextEpic"
                       [ngClass]="{
-                        minorTextSortActive: sortByString == rarity.EPIC,
                         minorCardCollectedTextCompleted:
                           cardSet.epicCollected === cardSet.epicTotal
                       }"
@@ -304,13 +289,12 @@
                     sortByString == 'total' ||
                     sortByString == rarity.LEGENDARY
                   "
-                  class="col-3"
+                  class="col-6"
                 >
                   <div>
                     <div
                       class="minorCardCollectedTextLegendary"
                       [ngClass]="{
-                        minorTextSortActive: sortByString == rarity.LEGENDARY,
                         minorCardCollectedTextCompleted:
                           cardSet.legendaryCollected === cardSet.legendaryTotal
                       }"

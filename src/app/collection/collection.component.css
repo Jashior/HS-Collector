@@ -35,7 +35,7 @@
 
 .main-progress-bar {
     box-shadow: 0 0 3px #333333;
-    min-height: 25px;
+    min-height: 20px;
 }
 
 .cardRarityTitleText {
@@ -48,6 +48,7 @@
     color: #EEEEE9;
     text-align: center;
     text-shadow: #3f3b3b 1px 0 2px;
+    font-size: medium;
 }
 
 .cardCollectedText {
@@ -191,4 +192,16 @@ hr {
 
 .emphasis-text {
     color: #FEA60F;
+}
+
+.error-panel {
+    padding: 30vh 0 0 0;   
+}
+
+.collection-stats {
+    padding: 0.75em 0 0 0;
+}
+
+.collection-progress-bar {
+    max-height: 0.5em;
 }

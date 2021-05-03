@@ -4,6 +4,11 @@ body {
     background-size: 11.31px 11.31px;
 }
 
+* {
+    font-family: sans-serif !important;
+    /* font-size: medium; */
+}
+
 ;
 /* Need both to hide scrollbar */
 
