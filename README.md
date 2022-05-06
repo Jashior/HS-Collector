@@ -1,6 +1,6 @@
 # HS-Collector
 
-HS-Collector is a web application to display an overview of your Hearthstone game card collection using the HSReply services.  It gives a visual indication of your progress on different sets, and the rarities of cards within each set.
+HS-Collector is a web application to display an overview of your Hearthstone game card collection using the HSReplay services.  It gives a visual indication of your progress on different sets, and the rarities of cards within each set.
 
 # Demo
 
